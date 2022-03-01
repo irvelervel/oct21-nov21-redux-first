@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'react-bootstrap'
 import './App.css'
 import { connect } from 'react-redux'
+import { decrementAction, incrementAction } from './redux/actions'
 // connect is a function capable of linking your component to the Redux Store
 // every component you want to link needs to import the connect function and use it!
 
@@ -27,19 +28,20 @@ const mapStateToProps = (state) => ({
 // mapDispatchToProps is a function returning an object
 const mapDispatchToProps = (dispatch) => ({
   incrementCounter: () => {
-    dispatch({
-      type: 'INCREMENT_COUNTER',
-    })
+    dispatch(incrementAction())
+  },
+  decrementCounter: () => {
+    dispatch(decrementAction())
   },
 })
 
-const App = ({ count, incrementCounter }) => {
+const App = ({ count, incrementCounter, decrementCounter }) => {
   return (
     <div className='App'>
       <header className='App-header'>
         <Button onClick={incrementCounter}>+</Button>
         <h3>{count}</h3>
-        <Button>-</Button>
+        <Button onClick={decrementCounter}>-</Button>
       </header>
     </div>
   )

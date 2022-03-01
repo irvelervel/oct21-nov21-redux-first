@@ -17,6 +17,8 @@ const configureStore = createStore(
   mainReducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  // this is more suitable for a real app :)
+  //   process.env.REACT_APP_ENV === development && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 export default configureStore
